@@ -6,8 +6,12 @@ The webapp includes text, audio and video chat. Also you can share your screen a
 
 ## Wireframe
 
-<img src="prepWork/assets/frame1.png">
-<img src="prepWork/assets/frame2.png">
+<img src="prepWork/assets/home-page-1.png">
+<img src="prepWork/assets/sign-in-page-1.png">
+<img src="prepWork/assets/sign-up-page-1.png">
+<img src="prepWork/assets/main-page-1.png">
+<img src="prepWork/assets/share-screen-page-1.png">
+
 
 ## Group members:
 - [Mahmoud Alzoubi](https://github.com/Mahmoud-alzoubi95)
