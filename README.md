@@ -26,3 +26,7 @@ Group members:
  10. see the number of people available on the app.
 
 * The user can get an optimized and easy to use app that fulfill the course lab requirements of an ideal lab environment.
+
+
+# Domain Model
+![domain model image](./assets/domain_model.png)
