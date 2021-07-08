@@ -30,3 +30,8 @@ Group members:
 
 # Domain Model
 ![domain model image](./assets/domain_model.png)
+
+# Project Management
+
+Check this [Link to Trello board](https://trello.com/b/boRm9Sbb) for all project tasks.
+
