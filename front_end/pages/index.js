@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import SignUpForm from './components/Sign_up'
 import LoginForm from './components/Sign_in'
+import img1 from './assets/logo.png'
 
 
 export default function Home() {
@@ -11,7 +12,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
- 
+      <div>
+        <img class="bg-background" src={img1}/>
+      </div>
 
       <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
         <h1 className="text-6xl font-bold">
