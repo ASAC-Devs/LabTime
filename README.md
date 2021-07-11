@@ -27,6 +27,18 @@ Group members:
 
 * The user can get an optimized and easy to use app that fulfill the course lab requirements of an ideal lab environment.
 
+# Database Schema Diagram
+![Database Schema Diagram](./assets/database.png)
+
+**Course**: to store all courses names in the bootcamp.
+
+**Role**: to store all user roles in the bootcamp.
+
+**Account**: to store all user accounts and details.
+
+**Session**: to store the session id for each user for the authentication system.
+
+**Ticket**: to store the details of each help ticket.
 
 # Domain Model
 ![domain model image](./assets/domain_model.png)
