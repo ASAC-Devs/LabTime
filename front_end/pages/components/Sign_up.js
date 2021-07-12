@@ -15,7 +15,7 @@ function SignUpForm() {
     }
     console.log(errors);
     return (<>
-     <div className="flex flex-col items-center justify-center min-h-screen py-2 text-center bg-blue-100">
+     <div width="100px" className=" bg-blue-100" >
         <form onSubmit = {handleSubmit(onSubmit)}>
             <h2 className="m-2">Sign-Up Form</h2>
             <pre>{JSON.stringify(userInfo, undefined, 2)} </pre>
