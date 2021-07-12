@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import {useForm} from 'react-hook-form';
 // import validation from './Sign_up_validation';
 import validation from "./Sign_up_valid";
+import Header from './header'
+import Link from 'next/link'
 // import Axios from 'axios'
 function SignUpForm() {
     const {register, handleSubmit}= useForm();
@@ -15,36 +17,37 @@ function SignUpForm() {
     }
     console.log(errors);
     return (<>
-     <div width="100px" className=" bg-blue-100" >
-        <form onSubmit = {handleSubmit(onSubmit)}>
-            <h2 className="m-2">Sign-Up Form</h2>
-            <pre>{JSON.stringify(userInfo, undefined, 2)} </pre>
-            <label  className="block my-1 border border-blue-200" >First Name </label>
-            <input name="fname" className="block my-3 border border-blue-200"  type="text"  {...register('fname', { required: true })}  />
-            <br />
+    <div className="bg-hero-pattern bg-no-repeat bg-cover bg-center h-screen w-screen">
+        <Header/>
+        
+     <div className="h-auto w-80 pb-8 bg-opacity-25 bg-gradient-to-b from-white/60 to-green-light/70 rounded-3xl shadow-xl ml-40 mt-16 items-center" >
+        <div className="ml-28">
+          <img src='../assets/logo.png' width="65px" height="65px" className="ml-4" /> 
+          <h1 className=" text-blue-dark font-bold text-xl antialiased  ml-3">Sign-up</h1>
 
-            <label className="block my-1 border border-blue-200" >Last Name :</label>
-            <input name="lname" className="block my-3 border border-blue-200" type="text" {...register('lname', { required: true })} />
-            {<p> {errors.lname} </p>}
-            <br />
-            <label className="block my-1 border border-blue-200">E-mail :</label>
-            <input name="email" className="block my-3 border border-blue-200" type="text" {...register('email', { required: true })}/>
-            {<p> {errors.email} </p>}
-            <br/>
+        </div>
+        <form onSubmit = {handleSubmit(onSubmit)}  className="ml-7 w-60" >
+            {/* <h2 className="m-2">Sign-Up Form</h2> */}
+            {/* <pre>{JSON.stringify(userInfo, undefined, 2)} </pre> */}
+            
+            <input name="fname" className="h-8 ml-4 mt-6 rounded-l focus:ring-blue-dark focus:border-green-light block w-full sm:text-sm border-green-light rounded-md shadow-inner " placeholder="User name"  type="text"  {...register('fname', { required: true })}  />
+       
 
-            <label className="block my-1 border border-blue-200">Password :</label>
-            <input name="password" className="block my-3 border border-blue-200" type="password" {...register('password', { required: false })}/>
-            {<p> {errors.password} </p>}
-            <br/>
+            <input name="email" className="h-8 ml-4 mt-6 rounded-l focus:ring-blue-dark focus:border-green-light block w-full sm:text-sm border-green-light rounded-md shadow-inner " placeholder="E-mail" type="text" {...register('email', { required: true })}/>
+            {<p className="ml-5 text-blue-dark font-semibold text-md antialiased "> {errors.email} </p>}
+          
 
-            <label className="block my-1 border border-blue-200">Confirm Password :</label>
-            <input name="Confirm" className="block my-3 border border-blue-200" type="Password" {...register('Confirm', { required: true })}/>
-            {<p> {errors.Confirm} </p>}
+            <input name="password" className="h-8 ml-4 mt-6 rounded-l focus:ring-blue-dark focus:border-green-light block w-full sm:text-sm border-green-light rounded-md shadow-inner " placeholder="Password" type="password" {...register('password', { required: false })}/>
+            {<p className="ml-5 text-blue-dark font-semibold text-md antialiased "> {errors.password} </p>}
+         
 
-            <button type="submit"  className="block my-1 border border-red-200" >Create</button>
+            <input name="Confirm" className="h-8 ml-4 mt-6 rounded-l focus:ring-blue-dark focus:border-green-light block w-full sm:text-sm border-green-light rounded-md shadow-inner " placeholder="Confirm Password" type="Password" {...register('Confirm', { required: true })}/>
+            {<p className="ml-5 text-blue-dark font-semibold text-md antialiased "> {errors.Confirm} </p>}
+
+            <button type="submit"  className="text-white hover:bg-green-light bg-blue-dark font-normal text-md antialiased h-8 ml-4 mt-5 block w-full shadow-lg rounded-md" >Create</button>
         </form>
         </div>
-
+        </div>
     </>
     )
     }
