@@ -4,6 +4,7 @@ import validation from './Sign_in_valid';
 import Link from 'next/link'
 // import SignUpForm from './Last_signUp';
 import SignUpForm from './Sign_up';
+
 export default function LoginForm(props) {
     const {register, handleSubmit}= useForm();
     const [userInfo, setUserInfo] = useState();
@@ -12,10 +13,12 @@ export default function LoginForm(props) {
         setUserInfo(data)
         console.log(data)
         setErrors(validation(data));
+        
 
     }
     return (
         <div className="flex flex-col items-center  min-h-screen py-2 text-center bg-blue-100">
+            <h2>Test H2</h2>
         <form onSubmit = {handleSubmit(onSubmit)} >
 
             <label className="block my-3 border border-red-200" >E-mail </label>
@@ -34,3 +37,5 @@ export default function LoginForm(props) {
         </div>
     )
 }
+
+
