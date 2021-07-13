@@ -19,21 +19,20 @@ export default function LoginForm(props) {
 
     return (
 
-        <div className="h-72 w-80 bg-opacity-25 bg-gradient-to-b from-white/70 to-green-light/70 rounded-3xl shadow-xl ml-40 mt-24 items-center" >
+        <div className="items-center mt-24 ml-40 bg-opacity-25 shadow-xl h-72 w-80 bg-gradient-to-b from-white/70 to-green-light/70 rounded-3xl" >
         <div className="ml-32">
           <img src='./assets/logo.png' width="65px" height="65px" /> 
-          <h1 className="ml-1 text-blue-dark font-bold text-xl antialiased ">Login</h1>
-
+          <h1 className="ml-1 text-xl antialiased font-bold text-blue-dark ">Login</h1>
         </div>
-        <form onSubmit = {handleSubmit(onSubmit)} className="ml-7 w-60">  
-            <input className="h-8 ml-4 mt-3 rounded-l focus:ring-blue-dark focus:border-green-light block w-full sm:text-sm border-green-light rounded-md shadow-inner  "   name="email"  type="text" placeholder="User name" {...register('email', { required: true  })} />
-            {<p className="ml-5 text-blue-dark font-semibold text-md antialiased "> {errors.email} </p>}
+        <form onSubmit = {handleSubmit(onSubmit)} className=" ml-7 w-60">  
+            <input className="block w-full h-8 pl-3 mt-3 ml-4 rounded-md rounded-l shadow-inner focus:ring-blue-dark focus:border-green-light sm:text-sm border-green-light"   name="email"  type="text" placeholder="User name" {...register('email', { required: true  })} />
+            {<p className="ml-5 antialiased font-semibold text-blue-dark text-md "> {errors.email} </p>}
 
-            <input className="h-8 ml-4 mt-4 rounded-l focus:ring-blue-dark focus:border-green-light block w-full shadow-inner sm:text-sm border-green-light rounded-md "   name="Password" type="password" placeholder="Password" {...register('Password', { required: true  })}/>
-            {<p className="ml-5 text-blue-dark font-semibold text-md antialiased " >{errors.Password}</p>}
+            <input className="block w-full h-8 pl-3 mt-4 ml-4 rounded-md rounded-l shadow-inner focus:ring-blue-dark focus:border-green-light sm:text-sm border-green-light "   name="Password" type="password" placeholder="Password" {...register('Password', { required: true  })}/>
+            {<p className="ml-5 antialiased font-semibold text-blue-dark text-md " >{errors.Password}</p>}
 
-            <button className=" text-white hover:bg-green-light bg-blue-dark font-normal text-md antialiased  h-8 ml-4 mt-4 rounded-l block w-full shadow-lg rounded-md" >Login</button>
-            <Link href='./components/Sign_up'><button className="text-blue-dark font-semibold text-md antialiased h-8 ml-4 mb-2  block w-full  ">Sign-Up</button></Link>
+            <button className="block w-full h-8 mt-4 ml-4 antialiased font-normal text-white rounded-md rounded-l shadow-lg hover:bg-green-light bg-blue-dark text-md" >Login</button>
+            <Link href='./components/Sign_up'><button className="block w-full h-8 mb-2 ml-4 antialiased font-semibold text-blue-dark text-md ">Sign-Up</button></Link>
 
         </form>
         </div>

@@ -2,7 +2,7 @@ import Head from 'next/head'
 import SignUpForm from './components/Sign_up'
 import LoginForm from './components/Sign_in'
 import Header from './components/header'
-
+import Footer from './components/Footer'
 // import img1 from './public/assets/logo.png'
 
 // bg-hero-pattern bg-no-repeat bg-cover bg-center h-screen w-screen
@@ -32,6 +32,9 @@ export default function Home() {
           </div>
 
       </main>
+
+      {/* <Footer/> */}
     </div>
+
   )
 }
