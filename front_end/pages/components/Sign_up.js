@@ -17,34 +17,34 @@ function SignUpForm() {
     }
     console.log(errors);
     return (<>
-    <div className="bg-hero-pattern bg-no-repeat bg-cover bg-center h-screen w-screen">
+    <div className="w-screen h-screen bg-center bg-no-repeat bg-cover bg-hero-pattern">
         <Header/>
         
-     <div className="h-auto w-80 pb-8 bg-opacity-25 bg-gradient-to-b from-white/60 to-green-light/70 rounded-3xl shadow-xl ml-40 mt-16 items-center" >
+     <div className="items-center h-auto pb-8 mt-16 ml-40 bg-opacity-25 shadow-xl w-80 bg-gradient-to-b from-white/60 to-green-light/70 rounded-3xl" >
         <div className="ml-28">
           <img src='../assets/logo.png' width="65px" height="65px" className="ml-4" /> 
-          <h1 className=" text-blue-dark font-bold text-xl antialiased  ml-3">Sign-up</h1>
+          <h1 className="ml-3 text-xl antialiased font-bold text-blue-dark">Sign-up</h1>
 
         </div>
         <form onSubmit = {handleSubmit(onSubmit)}  className="ml-7 w-60" >
             {/* <h2 className="m-2">Sign-Up Form</h2> */}
             {/* <pre>{JSON.stringify(userInfo, undefined, 2)} </pre> */}
             
-            <input name="fname" className="h-8 ml-4 mt-6 rounded-l focus:ring-blue-dark focus:border-green-light block w-full sm:text-sm border-green-light rounded-md shadow-inner " placeholder="User name"  type="text"  {...register('fname', { required: true })}  />
+            <input name="fname" className="block w-full h-8 pl-2 mt-6 ml-4 rounded-md rounded-l shadow-inner focus:ring-blue-dark focus:border-green-light sm:text-sm border-green-light" placeholder="User name"  type="text"  {...register('fname', { required: true })}  />
        
 
-            <input name="email" className="h-8 ml-4 mt-6 rounded-l focus:ring-blue-dark focus:border-green-light block w-full sm:text-sm border-green-light rounded-md shadow-inner " placeholder="E-mail" type="text" {...register('email', { required: true })}/>
-            {<p className="ml-5 text-blue-dark font-semibold text-md antialiased "> {errors.email} </p>}
+            <input name="email" className="block w-full h-8 pl-2 mt-6 ml-4 rounded-md rounded-l shadow-inner focus:ring-blue-dark focus:border-green-light sm:text-sm border-green-light" placeholder="E-mail" type="text" {...register('email', { required: true })}/>
+            {<p className="ml-5 antialiased font-semibold text-blue-dark text-md "> {errors.email} </p>}
           
 
-            <input name="password" className="h-8 ml-4 mt-6 rounded-l focus:ring-blue-dark focus:border-green-light block w-full sm:text-sm border-green-light rounded-md shadow-inner " placeholder="Password" type="password" {...register('password', { required: false })}/>
-            {<p className="ml-5 text-blue-dark font-semibold text-md antialiased "> {errors.password} </p>}
+            <input name="password" className="block w-full h-8 pl-2 mt-6 ml-4 rounded-md rounded-l shadow-inner focus:ring-blue-dark focus:border-green-light sm:text-sm border-green-light" placeholder="Password" type="password" {...register('password', { required: false })}/>
+            {<p className="ml-5 antialiased font-semibold text-blue-dark text-md "> {errors.password} </p>}
          
 
-            <input name="Confirm" className="h-8 ml-4 mt-6 rounded-l focus:ring-blue-dark focus:border-green-light block w-full sm:text-sm border-green-light rounded-md shadow-inner " placeholder="Confirm Password" type="Password" {...register('Confirm', { required: true })}/>
-            {<p className="ml-5 text-blue-dark font-semibold text-md antialiased "> {errors.Confirm} </p>}
+            <input name="Confirm" className="block w-full h-8 pl-2 mt-6 ml-4 rounded-md rounded-l shadow-inner focus:ring-blue-dark focus:border-green-light sm:text-sm border-green-light" placeholder="Confirm Password" type="Password" {...register('Confirm', { required: true })}/>
+            {<p className="ml-5 antialiased font-semibold text-blue-dark text-md "> {errors.Confirm} </p>}
 
-            <button type="submit"  className="text-white hover:bg-green-light bg-blue-dark font-normal text-md antialiased h-8 ml-4 mt-5 block w-full shadow-lg rounded-md" >Create</button>
+            <button type="submit"  className="block w-full h-8 mt-5 ml-4 antialiased font-normal text-white rounded-md shadow-lg hover:bg-green-light bg-blue-dark text-md" >Create</button>
         </form>
         </div>
         </div>

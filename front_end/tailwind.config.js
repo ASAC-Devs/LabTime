@@ -12,7 +12,7 @@ module.exports = {
         current: 'currentColor',
         blue: {
           light: '#85d7ff',
-          default: '#004bd3',
+          default: '#0043c6',
           dark: '#020941',
         },
         green: {
@@ -49,10 +49,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [
-
-    require('ps-scrollbar-tailwind'),
-    require('tailwind-scrollbar'),
-
-],
+  plugins: [],
   }}
