@@ -1,38 +1,49 @@
-import {useForm} from 'react-hook-form'
-import {Redirect} from 'react-router-dom';
-import React, { useState } from "react";
-import validation from './Sign_in_valid';
-import Link from 'next/link'
-// import SignUpForm from './Last_signUp';
-import SignUpForm from './Sign_up';
-export default function LoginForm(props) {
-    const {register, handleSubmit}= useForm();
-    const [userInfo, setUserInfo] = useState();
+import React, {useState} from 'react'
+import Axios from 'axios'
+import { set } from 'react-hook-form'
+import { Redirect } from 'react-router';
+import { useHistory } from "react-router-dom";
+import { browserHistory } from 'react-router'
+export default function LoginForm(props){
+    // let history = useHistory();
+    // const url = "http://localhost:8900/posts"
+    // const [data, setData]= useState({
+    //     email: "",
+    //     password:""
+    // })
+    // function handleSubmit(e){
+    //     const newData = { ...data}
+    //     newData[e.target.id] = e.target.value
+    //     setData(newData)
+    //     console.log(newData)
+    // }
+    // function submit(e){
+    //     e.preventDefault();
+    //     Axios.post(url, {
+    //         email: data.email,
+    //         password: data.password
+    //     })
+    //     .then(res =>{
+    //         console.log(res.data)
+    //         history.push('/asdfg')        })
+    // }
 
-    const [errors, setErrors]= useState({});
-    const onSubmit = (data) =>{
-        setUserInfo(data)
-        console.log(data)
-        setErrors(validation(data));
-     }
+    
 
-    return (
-        <div className="flex flex-col items-center  min-h-screen py-2 text-center bg-blue-100">
-        <form onSubmit = {handleSubmit(onSubmit)} >
+    return(
+        <div>
+            <form onSubmit={props.login} method="POST" >
 
-            <label className="block my-3 border border-red-200" >E-mail </label>
-            <input className="block my-3 border border-red-200" name="email"  type="text" placeholder="User name" {...register('email', { required: true  })} />
-            {<p> {errors.email} </p>}
-            <br />
+             <label className="block my-3 border border-red-200" >E-mail </label>
+             <input name="userName"  type="text" placeholder="E-mail" />
+             <br />
 
-            <label className="block my-3 border border-red-200" >Password </label>
-            <input className="block my-3 border border-red-200" name="Password" type="password" placeholder="Password" {...register('Password', { required: true  })}/>
-            {<p> {errors.Password} </p>}
+             <label className="block my-3 border border-red-200" >Password </label>
+             <input name="password"  type="password" placeholder="Password" />
+             <button className="block my-3 w-full bg-blue-200" >Login</button>
+{/* //             <h1>Or <Link href='./components/Sign_up'><button className="pl-1 pr-1 text-base bg-gray-100 ">Sign-Up ?</button></Link></h1> */}
 
-            <button className="block my-3 w-full bg-blue-200" ><a href="/conference_page/">Login</a></button>
-            <h1>Or <Link href='./components/Sign_up'><button className="pl-1 pr-1 text-base bg-gray-100 ">Sign-Up ?</button></Link></h1>
-
-        </form>
-        </div>
+        </form>       
+ </div>
     )
 }

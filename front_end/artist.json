@@ -1,0 +1,315 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "FirstName": "Omar",
+      "Lastname": "Zoubi",
+      "Email": "o.fandi02@gmail.com",
+      "password": "120211",
+      "Confiremed": "120121",
+      "id": 2
+    },
+    {
+      "FirstName": "Omar",
+      "Lastname": "Zoubi",
+      "Email": "o.fandi02@gmail.com",
+      "password": "asdasd",
+      "Confiremed": "asdasd",
+      "id": 3
+    },
+    {
+      "FirstName": "Omar",
+      "Lastname": "Zoubi",
+      "Email": "o.fandi02@gmail.com",
+      "password": "ddd",
+      "Confiremed": "dddd",
+      "id": 4
+    },
+    {
+      "FirstName": "Omar",
+      "Lastname": "Zoubi",
+      "Email": "o.fandi02@gmail.com",
+      "password": "df",
+      "Confiremed": "sdf",
+      "Rool": "Teacher Assestant",
+      "id": 5
+    },
+    {
+      "FirstName": "Omar",
+      "Lastname": "Zoubi",
+      "Email": "o.fandi02@gmail.com",
+      "password": "dddd",
+      "Confiremed": "dddd",
+      "Cours": "Code-401-Python",
+      "id": 6
+    },
+    {
+      "FirstName": "Omar",
+      "Lastname": "Zoubi",
+      "Email": "o.fandi02@gmail.com",
+      "password": "123",
+      "Confiremed": "123",
+      "Rool": "Teacher Assestant",
+      "Cours": "Code-401-Python",
+      "id": 7
+    },
+    {
+      "FirstName": "Omar",
+      "Lastname": "Zoubi",
+      "Email": "o.fandi02@gmail.com",
+      "password": "rrr",
+      "Confiremed": "rrr",
+      "Role": "Teacher Assestant",
+      "Course": "Code-401-Python",
+      "id": 8
+    },
+    {
+      "FirstName": "Omar",
+      "Lastname": "Zoubi",
+      "Email": "o.fandi02@gmail.com",
+      "password": "2121",
+      "Confiremed": "321321",
+      "id": 9
+    },
+    {
+      "FirstName": "Omar",
+      "Lastname": "Zoubi",
+      "Email": "o.fandi02@gmail.com",
+      "password": "sdsd",
+      "Confiremed": "sdsd",
+      "id": 10
+    },
+    {
+      "FirstName": "Omar",
+      "Lastname": "Zoubi",
+      "Email": "o.fandi02@gmail.com",
+      "password": "dsd",
+      "Confiremed": "sds",
+      "id": 11
+    },
+    {
+      "FirstName": "Omar",
+      "Lastname": "Zoubi",
+      "Email": "o.fandi02@gmail.com",
+      "password": "",
+      "Confiremed": "",
+      "id": 12
+    },
+    {
+      "FirstName": "Omar",
+      "Lastname": "Zoubi",
+      "Email": "o.fandi02@gmail.com",
+      "password": "",
+      "Confiremed": "",
+      "id": 13
+    },
+    {
+      "FirstName": "Omar",
+      "Lastname": "Zoubi",
+      "Email": "o.fandi02@gmail.com",
+      "password": "sdf",
+      "Confiremed": "df",
+      "Role": "Teacher Assestant",
+      "Course": "Code-401-Python",
+      "id": 14
+    },
+    {
+      "FirstName": "sdf",
+      "Lastname": "sdf",
+      "Email": "sdf",
+      "password": "sdf",
+      "Confiremed": "sdf",
+      "Role": "Teacher Assestant",
+      "Course": "Code-401-JavaScript",
+      "id": 15
+    },
+    {
+      "FirstName": "Omar",
+      "Lastname": "Zoubi",
+      "Email": "o.fandi02@gmail.com",
+      "password": "sdf",
+      "Confiremed": "sdf",
+      "id": 16
+    },
+    {
+      "FirstName": "Omar",
+      "Lastname": "Zoubi",
+      "Email": "o.fandi02@gmail.com",
+      "password": "sdf",
+      "Confiremed": "sdf",
+      "Course": "201",
+      "id": 17
+    },
+    {
+      "FirstName": "",
+      "Lastname": "",
+      "Email": "",
+      "password": "",
+      "Confiremed": "",
+      "Role": "Std",
+      "Course": "401_PY",
+      "id": 18
+    },
+    {
+      "FirstName": "sef",
+      "Lastname": "sdf",
+      "Email": "sdfs",
+      "password": "dsfs",
+      "Confiremed": "sdf",
+      "Role": "Std",
+      "Course": "401_PY",
+      "id": 19
+    },
+    {
+      "FirstName": "Omar",
+      "Lastname": "Zoubi",
+      "Email": "o.fandi02@gmail.com",
+      "password": "2222",
+      "Confiremed": "3333",
+      "Role": "Std",
+      "Course": "401_PY",
+      "id": 20
+    },
+    {
+      "FirstName": "sdf",
+      "Lastname": "sdf",
+      "Email": "sdf",
+      "password": "sdf",
+      "Confiremed": "sdf",
+      "Role": "TA",
+      "Course": "401_PY",
+      "id": 21
+    },
+    {
+      "FirstName": "sdf",
+      "Lastname": "sdf",
+      "Email": "sdf",
+      "password": "sdf",
+      "Confiremed": "sdf",
+      "Role": "TA",
+      "Course": "401_PY",
+      "id": 22
+    },
+    {
+      "FirstName": "zdcv",
+      "Lastname": "sdf",
+      "Email": "sdf",
+      "password": "sdf",
+      "Confiremed": "sdf",
+      "id": 23
+    },
+    {
+      "FirstName": "Omar",
+      "Lastname": "Zoubi",
+      "Email": "o.fandi02@gmail.com",
+      "password": "621",
+      "Confiremed": "651",
+      "Role": "TA",
+      "Course": "401_java",
+      "id": 24
+    },
+    {
+      "FirstName": "Omar",
+      "Lastname": "Zoubi",
+      "Email": "o.fandi02@gmail.com",
+      "password": "621",
+      "Confiremed": "651",
+      "Role": "TA",
+      "Course": "401_java",
+      "id": 25
+    },
+    {
+      "FirstName": "",
+      "Lastname": "",
+      "Email": "",
+      "password": "",
+      "Confiremed": ";klm",
+      "Role": "TA",
+      "id": 26
+    },
+    {
+      "FirstName": "efesf",
+      "Lastname": "edf",
+      "Email": "edf",
+      "password": "eef",
+      "Confiremed": "ewfwed",
+      "Role": "TA",
+      "Course": "401_JS",
+      "id": 27
+    },
+    {
+      "FirstName": "efesf",
+      "Lastname": "edf",
+      "Email": "edf",
+      "password": "eef",
+      "Confiremed": "ewfwed",
+      "Role": "TA",
+      "Course": "401_JS",
+      "id": 28
+    },
+    {
+      "userName": "sdfsdfsdf",
+      "password": "sdfsdfsdf",
+      "id": 29
+    },
+    {
+      "userName": "o.fandi02@gmail.com",
+      "password": "dfg",
+      "id": 30
+    },
+    {
+      "userName": "o.fandi02@gmail.com",
+      "password": "dfg",
+      "id": 31
+    },
+    {
+      "userName": "o.fandi02@gmail.com",
+      "password": "dfg",
+      "id": 32
+    },
+    {
+      "fname": "",
+      "lname": "",
+      "email": "sdfsdf",
+      "password": "sdfsdf",
+      "confirm": "sdfsdf",
+      "role": "Std",
+      "course": "301",
+      "id": 33
+    },
+    {
+      "fname": "kjnlkjn",
+      "lname": "kjnlkjn",
+      "email": "kjb",
+      "password": "kjb",
+      "confirm": "mnb k",
+      "role": "TA",
+      "course": "201",
+      "id": 34
+    },
+    {
+      "fname": "Omar",
+      "lname": "Omar",
+      "email": "o.fandi02@gmail.com",
+      "password": "sdcsdc",
+      "confirm": "sdcsdc",
+      "role": "Std",
+      "course": "401_JS",
+      "id": 35
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
