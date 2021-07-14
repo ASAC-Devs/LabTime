@@ -1,4 +1,5 @@
 import UserVideoComponent from "./UserVideoComponent";
+import UserScreenComponent from "./UserScreenComponent";
 import { getToken } from "../api/roomsManager";
 import { OpenVidu } from "openvidu-browser";
 import React, { Component } from 'react';
@@ -14,8 +15,9 @@ class RoomsList extends Component {
             mainStreamManager: undefined,
             publisher: undefined,
             subscribers: [],
-            mic:true,
-            camera:true
+            mic: true,
+            camera: true,
+            myScreenShare: undefined
         };
 
         this.joinSession = this.joinSession.bind(this);
@@ -26,6 +28,7 @@ class RoomsList extends Component {
         this.onbeforeunload = this.onbeforeunload.bind(this);
         this.handleToggleAudio = this.handleToggleAudio.bind(this);
         this.handleToggleVideo = this.handleToggleVideo.bind(this);
+        this.shareScreen = this.shareScreen.bind(this);
     }
 
     componentDidMount() {
@@ -59,17 +62,17 @@ class RoomsList extends Component {
             });
         }
     }
-    handleToggleAudio(){
+    handleToggleAudio() {
         console.log('Trigrered Audio');
-        this.setState({mic:!this.state.mic},
-            ()=>this.state.publisher.publishAudio(this.state.mic)
-            );
+        this.setState({ mic: !this.state.mic },
+            () => this.state.publisher.publishAudio(this.state.mic)
+        );
     }
-    handleToggleVideo(){
+    handleToggleVideo() {
         console.log('Trigrered Video');
-        this.setState({camera:!this.state.camera},
-            ()=>this.state.publisher.publishVideo(this.state.camera)
-            );
+        this.setState({ camera: !this.state.camera },
+            () => this.state.publisher.publishVideo(this.state.camera)
+        );
     }
 
     deleteSubscriber(streamManager) {
@@ -92,6 +95,7 @@ class RoomsList extends Component {
             () => {
                 let mySession = this.state.session;
                 mySession.on('streamCreated', (event) => {
+                    console.log('streamCreated');
                     let subscriber = mySession.subscribe(event.stream, undefined);
                     let subscribers = this.state.subscribers;
                     subscribers.push(subscriber);
@@ -109,32 +113,58 @@ class RoomsList extends Component {
                 });
 
                 getToken(this.state.mySessionId).then((token) => {
-                    mySession.connect(token,{ clientData: this.state.myUserName },
-                        ).then(() => {
-                            let publisher = this.OV.initPublisher(undefined, {
-                                audioSource: undefined, 
-                                videoSource: undefined, 
-                                publishAudio: true, 
-                                publishVideo: true, 
-                                resolution: '640x480', 
-                                frameRate: 30, 
-                                insertMode: 'APPEND',  
-                                mirror: false,
-                            });
+                    mySession.connect(token, { clientData: this.state.myUserName },
+                    ).then(() => {
+                        let publisher = this.OV.initPublisher(undefined, {
+                            audioSource: undefined,
+                            videoSource: undefined,
+                            publishAudio: true,
+                            publishVideo: true,
+                            resolution: '640x480',
+                            frameRate: 30,
+                            insertMode: 'APPEND',
+                            mirror: false,
+                        });
+                        //-------------
+                        mySession.publish(publisher);
 
-                            mySession.publish(publisher);
-
-                            this.setState({
-                                mainStreamManager: publisher,
-                                publisher: publisher,
-                            });
-                        })
+                        this.setState({
+                            mainStreamManager: publisher,
+                            publisher: publisher,
+                        });
+                    })
                         .catch((error) => {
                             console.log('There was an error connecting to the session:', error.code, error.message);
                         });
                 });
             },
         );
+    }
+    shareScreen() {
+        // if i am not already sharing my screen
+        if (this.state.myScreenShare === undefined){
+
+            let mySession = this.state.session;
+            
+            let myScreenSharePublisher = this.OV.initPublisher(undefined, { videoSource: "screen" });
+            
+            myScreenSharePublisher.once('accessAllowed', (event) => {
+                this.setState({
+                    publisher: myScreenSharePublisher,
+                    myScreenShare:myScreenSharePublisher
+                });
+
+                myScreenSharePublisher.stream.getMediaStream().getVideoTracks()[0].addEventListener('ended', () => {
+                    console.log('User pressed the "Stop sharing" button');
+                });
+                // mySession.publish(myScreenSharePublisher);
+            });
+            
+            myScreenSharePublisher.once('accessDenied', (event) => {
+                console.warn('ScreenShare: Access Denied');
+            });
+
+        }
     }
 
     leaveSession() {
@@ -153,10 +183,11 @@ class RoomsList extends Component {
             myUserName: 'Participant' + Math.floor(Math.random() * 100),
             mainStreamManager: undefined,
             publisher: undefined,
-            mic:true,
-            camera:true
+            mic: true,
+            camera: true
         });
     }
+
 
     /*----------------------------------------------------*/
     render() {
@@ -165,27 +196,27 @@ class RoomsList extends Component {
         if (this.state.session) {
             return (
                 <>
-                        <div id="session-header">
-                            <h1 id="session-title">{mySessionId}</h1>
-                            <input
-                                className="btn btn-large btn-danger"
-                                type="button"
-                                id="buttonLeaveSession"
-                                onClick={this.leaveSession}
-                                value="Leave session"
-                            />
+                    <div>
+                        <h1>{mySessionId}</h1>
+                        <button onClick={this.leaveSession}>Leave room</button>
+                        <button onClick={this.shareScreen}>Share Screen</button>
                         <h1>Participants: {this.state.subscribers.length + 1}</h1>
-
-                        </div>
-                        <button onClick={this.handleToggleAudio}>audio</button>
-                        <button onClick={this.handleToggleVideo}>video</button>
-                        {this.state.publisher !== undefined ? (
-                                <UserVideoComponent
-                                    streamManager={this.state.publisher} />
-                        ) : null}
-                        {this.state.subscribers.map((sub, i) => (
-                                <UserVideoComponent streamManager={sub} />
-                        ))}
+                        <section id="sharedScreenContainer">
+                        {this.state.publisher === this.state.myScreenShare ? (
+                        <UserScreenComponent
+                            streamManager={this.state.myScreenShare} />
+                    ) : null}
+                        </section>
+                    </div>
+                    <button onClick={this.handleToggleAudio}>audio</button>
+                    <button onClick={this.handleToggleVideo}>video</button>
+                    {this.state.publisher !== this.state.myScreenShare ? (
+                        <UserVideoComponent
+                            streamManager={this.state.publisher} />
+                    ) : null}
+                    {this.state.subscribers.map((sub, i) => (
+                        <UserVideoComponent streamManager={sub} />
+                    ))}
                 </>
             )
 
