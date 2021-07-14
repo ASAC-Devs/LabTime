@@ -1,6 +1,7 @@
 import Head from 'next/head'
 // import Register from './components/Sign_upcanssss'
 import LoginForm from './components/Sign_in'
+<<<<<<< HEAD
 import img1 from './assets/logo.png'
 import axios from 'axios'
 import React, {useState} from 'react';
@@ -19,7 +20,13 @@ import SignUpForm from './components/Sign_up';
 // import store from './//store';
 
 
+=======
+import Header from './components/header'
+import Footer from './components/Footer'
+// import img1 from './public/assets/logo.png'
+>>>>>>> 7016134667f2135e179473fa5dea113bacf9b3c5
 
+// bg-hero-pattern bg-no-repeat bg-cover bg-center h-screen w-screen
 export default function Home() {
 
 
@@ -61,6 +68,7 @@ export default function Home() {
   }
   if (!loggedIn) {
   return (
+<<<<<<< HEAD
     <Register/>
   //   <div className="flex flex-col items-center justify-center min-h-screen py-2">
   //     <Head>
@@ -83,6 +91,36 @@ export default function Home() {
   //   </div>
   // )}
   // else{ return(    <LoginForm login={login}/>
+=======
+
+    <div className="bg-hero-pattern bg-no-repeat bg-cover bg-center h-screen w-screen">
+
+      <Header>
+
+      </Header>
+      <Head>
+
+      </Head>
+
+      <main className="" >
+        {/* <h1 className="text-6xl font-bold">
+          Welcome to{' '}
+          <h2 className="text-blue-600">
+            Lab Time
+          </h2>
+        </h1> */}
+          <div className=" " width="30%"> 
+
+           <LoginForm/>
+
+          </div>
+
+      </main>
+
+      {/* <Footer/> */}
+    </div>
+
+>>>>>>> 7016134667f2135e179473fa5dea113bacf9b3c5
   )
   }
 
