@@ -1,9 +1,47 @@
 import React, { useState } from "react";
 import SignUpForm from './Sign-up'
+import axiosInstance from '../axios';
 
-export default function LoginForm(props) {
+export default function SignIn() {
     
      const [show, setShow] = useState(false);
+
+    //  const history = useHistory();
+	const initialFormData = Object.freeze({
+		email: '',
+		password: ''
+	});
+
+	const [formData, updateFormData] = useState(initialFormData);
+
+	const handleChange = (e) => {
+		updateFormData({
+			...formData,
+			[e.target.name]: e.target.value.trim(),
+		});
+	};
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		console.log(formData);
+
+
+		axiosInstance
+			.post(`api/token/`, {
+				email: formData.email,
+				password: formData.password,
+			})
+			.then((res) => {
+				localStorage.setItem('access_token', res.data.access);
+				localStorage.setItem('refresh_token', res.data.refresh);
+				axiosInstance.defaults.headers['Authorization'] =
+					'JWT ' + localStorage.getItem('access_token');
+                    
+				// history.push('/');
+				console.log(res);
+				console.log(res.data);
+			});
+	};
      
     
      
@@ -21,10 +59,10 @@ export default function LoginForm(props) {
         
         <form className=" ml-7 w-60">
 
-            <input className="block w-full h-8 pl-3 mt-3 ml-4 rounded-md rounded-l shadow-inner focus:ring-blue-dark focus:border-green-light sm:text-sm border-green-light"   name="email"  type="text" placeholder="User name"  />
-            <input className="block w-full h-8 pl-3 mt-4 ml-4 rounded-md rounded-l shadow-inner focus:ring-blue-dark focus:border-green-light sm:text-sm border-green-light "   name="Password" type="password" placeholder="Password"/>       
-            <button className="block w-full h-8 mt-4 ml-4 antialiased font-normal text-white rounded-md rounded-l shadow-lg hover:bg-green-light bg-blue-dark text-md" >Login</button>
-            <button onClick={()=>setShow(true)} className="block w-full h-8 mb-2 ml-4 antialiased font-semibold text-blue-dark text-md ">Sign-Up</button>
+            <input className="block w-full h-8 pl-3 mt-3 ml-4 rounded-md rounded-l shadow-inner focus:ring-blue-dark focus:border-green-light sm:text-sm border-green-light"   name="email" onChange={handleChange} type="text" placeholder="User name"  />
+            <input className="block w-full h-8 pl-3 mt-4 ml-4 rounded-md rounded-l shadow-inner focus:ring-blue-dark focus:border-green-light sm:text-sm border-green-light "   name="password" onChange={handleChange} type="password" placeholder="Password"/>       
+            <button onClick={handleSubmit} className="block w-full h-8 mt-4 ml-4 antialiased font-normal text-white rounded-md rounded-l shadow-lg hover:bg-green-light bg-blue-dark text-md" >Login</button>
+            <button onClick={()=>{setShow(true)}  } className="block w-full h-8 mb-2 ml-4 antialiased font-semibold text-blue-dark text-md ">Sign-Up</button>
 
 
         </form>
