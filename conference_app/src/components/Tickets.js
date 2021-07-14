@@ -6,6 +6,8 @@ export default function TeckitForm(props) {
     const [userInfo, setUserInfo] = useState('');
     const [errors, setErrors]= useState({});
 
+    
+
     const onSubmit = (data) =>{
         setUserInfo(data)
         console.log(data)
@@ -33,6 +35,7 @@ export default function TeckitForm(props) {
             :null}
             </div>
               {show?
+              
          <div className="items-center h-64 p-6 mt-4 ml-4 rounded-lg shadow-xl w-72 bg-gradient-to-b from-white/70 to-green-light/70">
          <form onSubmit = {handleSubmit(onSubmit)} className=" w-60" >
            
@@ -42,7 +45,7 @@ export default function TeckitForm(props) {
             
             <input className="block w-full h-8 pl-3 mt-3 border-2 rounded-md rounded-l shadow-inner border-green-light focus:ring-blue-dark focus:border-green-light sm:text-sm " name="LabNmber" type="nmber" placeholder="Lab Number" {...register('LabNmber', { required: true  })}/>
 
-            <button onClick={()=>{setShow(false),setCont(true)}} className="block w-full h-8 mt-3 antialiased font-normal text-white rounded-md rounded-l shadow-lg hover:bg-green-light bg-blue-dark text-md" >Raise</button>
+            <button onClick={()=>{setShow(false);setCont(true)}} className="block w-full h-8 mt-3 antialiased font-normal text-white rounded-md rounded-l shadow-lg hover:bg-green-light bg-blue-dark text-md" >Raise</button>
 
             <button onClick={()=>setShow(false)}  className="block w-full h-8 mt-3 antialiased font-normal text-white rounded-md rounded-l shadow-lg hover:bg-green-light bg-blue-dark text-md" >Cancel</button>
             
