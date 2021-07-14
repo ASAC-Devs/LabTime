@@ -1,11 +1,11 @@
 import Head from 'next/head'
-import Register from './components/Sign_upcanssss'
+// import Register from './components/Sign_upcanssss'
 import LoginForm from './components/Sign_in'
 import img1 from './assets/logo.png'
 import axios from 'axios'
 import React, {useState} from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-
+import Register from './components/Sign_up_noura'
 // import Layout from './hocs/Layout';
 
 // import Home from './containers/Home';
@@ -27,7 +27,7 @@ export default function Home() {
   const [reports, setreports] = useState([])
   const [loggedIn,setloggedIn] = useState(false)
   // const data = require('../public/data')
-  let baseURL = 'http://localhost:8900/posts'
+  let baseURL = 'https://labtime-api.herokuapp.com/accounts/register'
 
 
   const signup = (e,)=>{
@@ -61,27 +61,28 @@ export default function Home() {
   }
   if (!loggedIn) {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <Register/>
+  //   <div className="flex flex-col items-center justify-center min-h-screen py-2">
+  //     <Head>
+  //       <title>Create Next App</title>
+  //       <link rel="icon" href="/favicon.ico" />
+  //     </Head>
 
       
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
+  //     <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
 
 
-        <div className="mt-5 w-50 text-2xl">
+  //       <div className="mt-5 w-50 text-2xl">
 
-        <SignUpForm signup={signup}/>
-          </div>
+  //       <SignUpForm signup={signup}/>
+  //         </div>
   
-      </main>
+  //     </main>
 
   
-    </div>
-  )}
-  else{ return(    <LoginForm login={login}/>
+  //   </div>
+  // )}
+  // else{ return(    <LoginForm login={login}/>
   )
   }
 

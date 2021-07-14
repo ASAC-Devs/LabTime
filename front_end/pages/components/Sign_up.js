@@ -42,28 +42,23 @@ export default   function SignUpForm(props) {
      <div className="flex flex-col items-center justify-center min-h-screen py-2 text-center bg-blue-100">
         <form  onSubmit={props.signup} method="POST">
             <h2 className="m-2">Sign-Up Form</h2>
-            {/* <pre>{JSON.stringify(userInfo, undefined, 2)} </pre> */}
             <label  className="block my-1 border border-blue-200" >First Name </label>
             <input name="fname"  type="text"  />
             <br />
 
             <label className="block my-1 border border-blue-200" >Last Name :</label>
             <input name="lname" type="text" />
-            {/* {<p> {errors.lname} </p>} */}
             <br />
             <label className="block my-1 border border-blue-200">E-mail :</label>
             <input name="email"  type="text"/>
-            {/* {<p> {errors.email} </p>} */}
             <br/>
 
             <label className="block my-1 border border-blue-200">Password :</label>
             <input name="password"  type="password"/>
-            {/* {<p> {errors.password} </p>} */}
             <br/>
 
             <label className="block my-1 border border-blue-200">Confirm Password :</label>
             <input name="confirm"  type="password"/>
-            {/* {<p> {errors.Confirm} </p>} */}
 
             <label className="block my-1 border border-blue-200">Role</label>
             <select name="role" >

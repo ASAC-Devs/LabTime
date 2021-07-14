@@ -46,10 +46,11 @@ export const update_profile = (first_name, last_name, phone, city) => async disp
 
     const body = JSON.stringify({
         'withCredentials': true,
-        first_name,
-        last_name,
-        phone,
-        city
+        fname,
+        lname,
+        email,
+        role,
+        course
     });
 
     try {
