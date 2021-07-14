@@ -1,7 +1,7 @@
 import './App.css';
 import LoginForm from './components/LoginForm'; 
 import Header from './components/Header'
-import {Link} from 'react-router-dom';
+
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
         
         <LoginForm/>
         
-        <Link to="/conference">conference</Link>
+        
 
     </div>
   );
