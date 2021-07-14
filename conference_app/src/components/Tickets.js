@@ -54,7 +54,7 @@ export default function TeckitForm(props) {
 
                 
              
-        :<button onClick={()=>setShow(true)}  className="block h-8 mt-4 ml-4 text-lg antialiased font-normal text-white rounded-lg shadow-lg hover:bg-blue-dark bg-gradient-to-b from-green-light to-blue-dark w-72">+ Ticket</button> }
+        :<button onClick={()=>setShow(true)}  className="block h-8 mt-5 ml-4 text-lg antialiased font-normal rounded-md shadow-md w-72 bg-gray-lightest text-blue-dark hover:bg-green-light">+ Ticket</button> }
         {/* {!show? :null } */}
         {/* <button onClick={()=>setShow(false)}>hide</button>*/}
    

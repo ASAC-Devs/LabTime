@@ -198,16 +198,18 @@ class RoomsList extends Component {
         const myUserName = this.state.myUserName;
 
         return (<>
-            <div className="grid grid-cols-5 col-span-5 col-start-1 row-span-5 row-start-1 ml-2 auto-rows-auto">
+            <div className="grid grid-cols-5 col-span-5 col-start-1 row-span-5 row-start-1 mt-5 auto-rows-auto">
 
                 {this.state.session ? (
-                    <div className="col-span-4 col-start-2 row-span-4 row-start-1 ml-4 border-8">
+                    <div className="grid-cols-6 col-span-4 col-start-2 grid-rows-5 row-span-4 row-start-1 ml-5 border-2 rounded-lg bg-gradient-to-b from-green-light/70 to-blue-dark/70 border-green-light">
 
-                        <div>
-                            <h1>{mySessionId}</h1>
-                            <button onClick={this.leaveSession}>Leave room</button>
-                            <button onClick={this.shareScreen}>Share Screen</button>
-                            <h1>Participants: {this.state.subscribers.length + 1}</h1>
+                        <div className="flex flex-row justify-center w-auto h-12 border border-green-light"> 
+                            <h1 className="w-24 pt-3 text-base antialiased font-normal text-center text-white hover:bg-green-light">{mySessionId}</h1>
+                            <h1 className="w-24 pt-3 text-base antialiased font-normal text-center text-white hover:bg-green-light">People: {this.state.subscribers.length + 1}</h1>
+                            <button onClick={this.handleToggleAudio} className="w-24 pt-1 text-base antialiased font-normal text-center text-white hover:bg-green-light">Audio</button>
+                            <button onClick={this.handleToggleVideo} className="w-24 pt-1 text-base antialiased font-normal text-center text-white hover:bg-green-light">video</button>
+                            <button onClick={this.shareScreen} className="w-24 pt-1 text-base antialiased font-normal text-center text-white hover:bg-green-light">Share Screen</button>
+                            <button onClick={this.leaveSession} className="w-24 pt-1 text-base antialiased font-normal text-center text-white hover:bg-green-light">Leave</button>
 
                             <section id="sharedScreenContainer">
                                 {this.state.publisher === this.state.myScreenShare ? (
@@ -216,10 +218,10 @@ class RoomsList extends Component {
                                 ) : null}
                             </section>
                         </div>
-
-                        <button onClick={this.handleToggleAudio}>audio</button>
-                        <button onClick={this.handleToggleVideo}>video</button>
-                        <div id="publisherContainer" className="w-48 h-48">
+                        <div className="" >
+                        
+                        </div>
+                        <div id="publisherContainer" className="flex flex-row flex-wrap w-64 rounded-sm shadow-sm h-60">
 
                             {this.state.publisher !== this.state.myScreenShare ? (
                                 <UserVideoComponent
@@ -235,19 +237,79 @@ class RoomsList extends Component {
                 ) : null}
 
 
-                <form onSubmit={this.joinSession} className="p-2 overflow-y-scroll rounded-lg shadow-inner h-my w-52 bg-gradient-to-b from-green-light/70 to-blue-dark/70">
+                <form onSubmit={this.joinSession} className="p-2 overflow-y-scroll rounded-lg shadow-inner newUtilities h-my w-52 bg-gradient-to-b from-green-light/70 to-blue-dark/70 ">
                     <div className="flex flex-row justify-between h-8 pl-2 pr-2 border rounded-lg shadow-md border-green-light hover:bg-blue-dark ">
                         <label className="mt-0.5 text-base antialiased font-normal text-white ">Room1</label>
                         <button onClick={this.handleChangeSessionId} value="room1" type="submit" className="mt-0.5 block w-6 h-6 text-lg font-semibold leading-6 text-center text-white rounded-xl ntialiased hover:bg-blue-light">+</button>
                     </div>
 
-                    <div className="flex flex-row justify-between h-8 pl-2 pr-2 border rounded-lg shadow-md border-green-light hover:bg-blue-dark ">
+                    <div className="flex flex-row justify-between h-8 pl-2 pr-2 mt-1 border rounded-lg shadow-md border-green-light hover:bg-blue-dark">
                         <label className="mt-0.5 text-base antialiased font-normal text-white ">Room2</label>
                         <button onClick={this.handleChangeSessionId} value="room2" type="submit" className="mt-0.5 block w-6 h-6 text-lg font-semibold leading-6 text-center text-white rounded-xl ntialiased hover:bg-blue-light">+</button>
                     </div>
 
-                    <div className="flex flex-row justify-between h-8 pl-2 pr-2 border rounded-lg shadow-md border-green-light hover:bg-blue-dark ">
+                    <div className="flex flex-row justify-between h-8 pl-2 pr-2 mt-1 border rounded-lg shadow-md border-green-light hover:bg-blue-dark">
                         <label className="mt-0.5 text-base antialiased font-normal text-white ">Room3</label>
+                        <button onClick={this.handleChangeSessionId} value="room3" type="submit" className="mt-0.5 block w-6 h-6 text-lg font-semibold leading-6 text-center text-white rounded-xl ntialiased hover:bg-blue-light">+</button>
+                    </div>
+
+                    <div className="flex flex-row justify-between h-8 pl-2 pr-2 mt-1 border rounded-lg shadow-md border-green-light hover:bg-blue-dark">
+                        <label className="mt-0.5 text-base antialiased font-normal text-white ">Room4</label>
+                        <button onClick={this.handleChangeSessionId} value="room3" type="submit" className="mt-0.5 block w-6 h-6 text-lg font-semibold leading-6 text-center text-white rounded-xl ntialiased hover:bg-blue-light">+</button>
+                    </div>
+
+                    <div className="flex flex-row justify-between h-8 pl-2 pr-2 mt-1 border rounded-lg shadow-md border-green-light hover:bg-blue-dark">
+                        <label className="mt-0.5 text-base antialiased font-normal text-white ">Room5</label>
+                        <button onClick={this.handleChangeSessionId} value="room3" type="submit" className="mt-0.5 block w-6 h-6 text-lg font-semibold leading-6 text-center text-white rounded-xl ntialiased hover:bg-blue-light">+</button>
+                    </div>
+
+                    <div className="flex flex-row justify-between h-8 pl-2 pr-2 mt-1 border rounded-lg shadow-md border-green-light hover:bg-blue-dark">
+                        <label className="mt-0.5 text-base antialiased font-normal text-white ">Room6</label>
+                        <button onClick={this.handleChangeSessionId} value="room3" type="submit" className="mt-0.5 block w-6 h-6 text-lg font-semibold leading-6 text-center text-white rounded-xl ntialiased hover:bg-blue-light">+</button>
+                    </div>
+
+                    <div className="flex flex-row justify-between h-8 pl-2 pr-2 mt-1 border rounded-lg shadow-md border-green-light hover:bg-blue-dark">
+                        <label className="mt-0.5 text-base antialiased font-normal text-white ">Room7</label>
+                        <button onClick={this.handleChangeSessionId} value="room3" type="submit" className="mt-0.5 block w-6 h-6 text-lg font-semibold leading-6 text-center text-white rounded-xl ntialiased hover:bg-blue-light">+</button>
+                    </div>
+
+                    <div className="flex flex-row justify-between h-8 pl-2 pr-2 mt-1 border rounded-lg shadow-md border-green-light hover:bg-blue-dark">
+                        <label className="mt-0.5 text-base antialiased font-normal text-white ">Room8</label>
+                        <button onClick={this.handleChangeSessionId} value="room3" type="submit" className="mt-0.5 block w-6 h-6 text-lg font-semibold leading-6 text-center text-white rounded-xl ntialiased hover:bg-blue-light">+</button>
+                    </div>
+
+                    <div className="flex flex-row justify-between h-8 pl-2 pr-2 mt-1 border rounded-lg shadow-md border-green-light hover:bg-blue-dark">
+                        <label className="mt-0.5 text-base antialiased font-normal text-white ">Room9</label>
+                        <button onClick={this.handleChangeSessionId} value="room3" type="submit" className="mt-0.5 block w-6 h-6 text-lg font-semibold leading-6 text-center text-white rounded-xl ntialiased hover:bg-blue-light">+</button>
+                    </div>
+
+                    <div className="flex flex-row justify-between h-8 pl-2 pr-2 mt-1 border rounded-lg shadow-md border-green-light hover:bg-blue-dark">
+                        <label className="mt-0.5 text-base antialiased font-normal text-white ">Room10</label>
+                        <button onClick={this.handleChangeSessionId} value="room3" type="submit" className="mt-0.5 block w-6 h-6 text-lg font-semibold leading-6 text-center text-white rounded-xl ntialiased hover:bg-blue-light">+</button>
+                    </div>
+
+                    <div className="flex flex-row justify-between h-8 pl-2 pr-2 mt-1 border rounded-lg shadow-md border-green-light hover:bg-blue-dark">
+                        <label className="mt-0.5 text-base antialiased font-normal text-white ">Room11</label>
+                        <button onClick={this.handleChangeSessionId} value="room3" type="submit" className="mt-0.5 block w-6 h-6 text-lg font-semibold leading-6 text-center text-white rounded-xl ntialiased hover:bg-blue-light">+</button>
+                    </div>
+
+                    <div className="flex flex-row justify-between h-8 pl-2 pr-2 mt-1 border rounded-lg shadow-md border-green-light hover:bg-blue-dark">
+                        <label className="mt-0.5 text-base antialiased font-normal text-white ">Room12</label>
+                        <button onClick={this.handleChangeSessionId} value="room3" type="submit" className="mt-0.5 block w-6 h-6 text-lg font-semibold leading-6 text-center text-white rounded-xl ntialiased hover:bg-blue-light">+</button>
+                    </div>
+
+                    <div className="flex flex-row justify-between h-8 pl-2 pr-2 mt-1 border rounded-lg shadow-md border-green-light hover:bg-blue-dark">
+                        <label className="mt-0.5 text-base antialiased font-normal text-white ">Room13</label>
+                        <button onClick={this.handleChangeSessionId} value="room3" type="submit" className="mt-0.5 block w-6 h-6 text-lg font-semibold leading-6 text-center text-white rounded-xl ntialiased hover:bg-blue-light">+</button>
+                    </div>
+
+                    <div className="flex flex-row justify-between h-8 pl-2 pr-2 mt-1 border rounded-lg shadow-md border-green-light hover:bg-blue-dark">
+                        <label className="mt-0.5 text-base antialiased font-normal text-white ">Room14</label>
+                        <button onClick={this.handleChangeSessionId} value="room3" type="submit" className="mt-0.5 block w-6 h-6 text-lg font-semibold leading-6 text-center text-white rounded-xl ntialiased hover:bg-blue-light">+</button>
+                    </div>
+
+                    <div className="flex flex-row justify-between h-8 pl-2 pr-2 mt-1 border rounded-lg shadow-md border-green-light hover:bg-blue-dark">
+                        <label className="mt-0.5 text-base antialiased font-normal text-white ">Room15</label>
                         <button onClick={this.handleChangeSessionId} value="room3" type="submit" className="mt-0.5 block w-6 h-6 text-lg font-semibold leading-6 text-center text-white rounded-xl ntialiased hover:bg-blue-light">+</button>
                     </div>
 

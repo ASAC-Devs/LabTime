@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 
 function App() {
   return (
-    <div className="w-screen h-screen bg-center bg-no-repeat bg-cover bg-hero-pattern ">
+    <div className="h-full bg-center bg-no-repeat bg-cover bg-hero-pattern">
         <Header/>
         
         
