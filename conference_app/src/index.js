@@ -1,12 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './index.css';
 import App from './App';
+import Conference from './conference_page'
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <BrowserRouter>
+       <Switch>
+              <Route exact path="/" component={App}/>
+              <Route exact path="/conference" component={Conference}/>
+      </Switch>
+    </BrowserRouter>,
+    {/* <App /> */}
   </React.StrictMode>,
   document.getElementById('root')
 );

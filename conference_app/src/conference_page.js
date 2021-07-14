@@ -1,8 +1,8 @@
-import TeckitForm from './components/Ticket'
-import AvailableRoom from './components/Roomslist'
+import TeckitForm from './components/Tickets'
+import AvailableRoom from './components/Roomlist'
 import Header from './components/Header'
 
-export default function Home() {
+export default function Conference() {
     return (
       <div className="w-screen h-screen bg-center bg-no-repeat bg-cover bg-hero-pattern">
             <Header>
