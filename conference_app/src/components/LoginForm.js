@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import SignUpForm from './Sign-up'
+import {Link} from 'react-router-dom';
 
 export default function LoginForm(props) {
     
@@ -23,7 +24,7 @@ export default function LoginForm(props) {
 
             <input className="block w-full h-8 pl-3 mt-3 ml-4 rounded-md rounded-l shadow-inner focus:ring-blue-dark focus:border-green-light sm:text-sm border-green-light"   name="email"  type="text" placeholder="User name"  />
             <input className="block w-full h-8 pl-3 mt-4 ml-4 rounded-md rounded-l shadow-inner focus:ring-blue-dark focus:border-green-light sm:text-sm border-green-light "   name="Password" type="password" placeholder="Password"/>       
-            <button className="block w-full h-8 mt-4 ml-4 antialiased font-normal text-white rounded-md rounded-l shadow-lg hover:bg-green-light bg-blue-dark text-md" >Login</button>
+            <Link to="/conference"><button className="block w-full h-8 mt-4 ml-4 antialiased font-normal text-white rounded-md rounded-l shadow-lg hover:bg-green-light bg-blue-dark text-md" >Login</button></Link>
             <button onClick={()=>setShow(true)} className="block w-full h-8 mb-2 ml-4 antialiased font-semibold text-blue-dark text-md ">Sign-Up</button>
 
 

@@ -20,17 +20,16 @@ export default function TeckitForm(props) {
             {cont?
             <div className="items-center p-6 mt-4 ml-4 overflow-y-scroll rounded-lg shadow-xl h-44 w-72 bg-gradient-to-b from-white/70 to-green-light/70">
             <button onClick={()=>setCont(false)} className="block w-full h-8 mt-3 antialiased font-normal text-white rounded-md rounded-l shadow-lg hover:bg-green-light bg-blue-dark text-md" >Close</button>
-            <h1>Tickets order</h1>
-            <h1>Tickets order</h1>
-            <h1>Tickets order</h1>
-            <h1>Tickets order</h1>
-            <h1>Tickets order</h1>
-            <h1>Tickets order</h1>
-            <h1>Tickets order</h1>
-            <h1>Tickets order</h1>
-            <h1>Tickets order</h1>
-            <h1>Tickets order</h1>
-            <h1>Tickets order</h1>
+            <h1 className="font-semibold text-blue-dark text-md">Lab:13 / room:5</h1>
+            <h1 className="font-semibold text-blue-dark text-md">Lab:19 / room:7</h1>
+            <h1 className="font-semibold text-blue-dark text-md">Lab:2 / room:4</h1>
+            <h1 className="font-semibold text-blue-dark text-md">Lab:7 / room:1</h1>
+            <h1 className="font-semibold text-blue-dark text-md">Lab:9 / room:8</h1>
+            <h1 className="font-semibold text-blue-dark text-md">Lab:15 / room:2</h1>
+            <h1 className="font-semibold text-blue-dark text-md">Lab:11 / room:6</h1>
+            <h1 className="font-semibold text-blue-dark text-md">Lab:14 / room:11</h1>
+            <h1 className="font-semibold text-blue-dark text-md">Lab:10 / room:10</h1>
+            <h1 className="font-semibold text-blue-dark text-md">Lab:12 / room:5</h1>
             </div>       
             :null}
             </div>
@@ -54,10 +53,9 @@ export default function TeckitForm(props) {
 
                 
              
-        :<button onClick={()=>setShow(true)}  className="block h-8 mt-5 ml-4 text-lg antialiased font-normal rounded-md shadow-md w-72 bg-gray-lightest text-blue-dark hover:bg-green-light">+ Ticket</button> }
+        :<button onClick={()=>setShow(true)}  className="block h-8 mt-5 ml-4 text-lg antialiased font-normal rounded-md shadow-md w-72 bg-green-light text-blue-dark hover:bg-blue-600">+ Ticket</button> }
         {/* {!show? :null } */}
         {/* <button onClick={()=>setShow(false)}>hide</button>*/}
    
         </div>
-    )
-}
+  )}
