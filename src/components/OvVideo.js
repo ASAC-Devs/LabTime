@@ -20,7 +20,15 @@ export default class OpenViduVideoComponent extends Component {
     }
 
     render() {
-        return <video autoPlay={true} ref={this.videoRef} />;
+        return (
+            <>
+                <button onClick={()=>{
+                    document.querySelectorAll("#videoElement")[1].requestFullscreen();
+                }}>
+                    <video id="videoElement" autoPlay={true} ref={this.videoRef} />
+                </button>
+            </>
+        );
     }
 
 }
