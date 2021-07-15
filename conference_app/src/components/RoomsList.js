@@ -18,7 +18,7 @@ class RoomsList extends Component {
             subscribers: [],
             mic: true,
             camera: true,
-            myScreenShare: undefined
+            myScreenShare: undefined,
         };
 
         this.joinSession = this.joinSession.bind(this);
@@ -30,6 +30,7 @@ class RoomsList extends Component {
         this.handleToggleAudio = this.handleToggleAudio.bind(this);
         this.handleToggleVideo = this.handleToggleVideo.bind(this);
         this.shareScreen = this.shareScreen.bind(this);
+        this.disconnect = this.disconnect.bind(this);
     }
 
     componentDidMount() {
@@ -87,8 +88,10 @@ class RoomsList extends Component {
         }
     }
 
-    joinSession(e) {
-        e.preventDefault()
+    joinSession(videoType=undefined) {
+        if (this.state.session) {
+            this.state.session.disconnect();
+        }
         this.OV = new OpenVidu();
         this.setState(
             {
@@ -117,23 +120,54 @@ class RoomsList extends Component {
                 getToken(this.state.mySessionId).then((token) => {
                     mySession.connect(token, { clientData: this.state.myUserName },
                     ).then(() => {
-                        let publisher = this.OV.initPublisher(undefined, {
-                            audioSource: undefined,
-                            videoSource: undefined,
-                            publishAudio: true,
-                            publishVideo: true,
-                            resolution: '640x480',
-                            frameRate: 30,
-                            insertMode: 'APPEND',
-                            mirror: false,
-                        });
-                        //-------------
-                        mySession.publish(publisher);
+                        if (videoType == 'screen') {
+                            
+                            let myScreenSharePublisher = this.OV.initPublisher(undefined, { videoSource: "screen" });
 
-                        this.setState({
-                            mainStreamManager: publisher,
-                            publisher: publisher,
-                        });
+                            myScreenSharePublisher.once('accessAllowed', (event) => {
+
+                                mySession.publish(myScreenSharePublisher);
+                                
+                                this.setState({
+                                    publisher: myScreenSharePublisher,
+                                    myScreenShare: myScreenSharePublisher
+                                });
+
+                                myScreenSharePublisher.stream.getMediaStream().getVideoTracks()[0].addEventListener('ended', () => {
+                                    console.log('User pressed the "Stop sharing" button');
+                                    this.setState({
+                                        myScreenShare: undefined
+                                    })
+                                    this.joinSession();
+                                });
+
+                            });
+
+                            myScreenSharePublisher.once('accessDenied', (event) => {
+                                console.warn('ScreenShare: Access Denied');
+                            });
+
+
+                        } else {
+
+                            let publisher = this.OV.initPublisher(undefined, {
+                                audioSource: undefined,
+                                videoSource: undefined,
+                                publishAudio: true,
+                                publishVideo: true,
+                                resolution: '640x480',
+                                frameRate: 30,
+                                insertMode: 'APPEND',
+                                mirror: false,
+                            });
+                            //-------------
+                            mySession.publish(publisher);
+                            
+                            this.setState({
+                                mainStreamManager: publisher,
+                                publisher: publisher,
+                            });
+                        }
                     })
                         .catch((error) => {
                             console.log('There was an error connecting to the session:', error.code, error.message);
@@ -143,30 +177,17 @@ class RoomsList extends Component {
         );
     }
     shareScreen() {
-        // if i am not already sharing my screen
+        //if i am not already sharing my screen
         if (this.state.myScreenShare === undefined) {
 
-            let mySession = this.state.session;
+            this.joinSession('screen');
 
-            let myScreenSharePublisher = this.OV.initPublisher(undefined, { videoSource: "screen" });
-
-            myScreenSharePublisher.once('accessAllowed', (event) => {
-                this.setState({
-                    publisher: myScreenSharePublisher,
-                    myScreenShare: myScreenSharePublisher
-                });
-
-                myScreenSharePublisher.stream.getMediaStream().getVideoTracks()[0].addEventListener('ended', () => {
-                    console.log('User pressed the "Stop sharing" button');
-                });
-                // mySession.publish(myScreenSharePublisher);
-            });
-
-            myScreenSharePublisher.once('accessDenied', (event) => {
-                console.warn('ScreenShare: Access Denied');
-            });
-
+        }else{
+            this.joinSession();
         }
+    }
+    disconnect() {
+        this.state.session.disconnect();
     }
 
     leaveSession() {
@@ -203,14 +224,14 @@ class RoomsList extends Component {
                 {this.state.session ? (
                     <div className="grid-cols-6 col-span-4 col-start-2 grid-rows-5 row-span-4 row-start-1 ml-5 border-2 rounded-lg bg-gradient-to-b from-green-light/70 to-blue-dark/70 border-green-light">
 
-                        <div className="flex flex-row justify-center w-auto h-12 border border-green-light"> 
+                        <div className="flex flex-row justify-center w-auto h-12 border border-green-light">
                             <h1 className="w-24 pt-3 text-base antialiased font-normal text-center text-white hover:bg-green-light">{mySessionId}</h1>
                             <h1 className="w-24 pt-3 text-base antialiased font-normal text-center text-white hover:bg-green-light">People: {this.state.subscribers.length + 1}</h1>
                             <button onClick={this.handleToggleAudio} className="w-24 pt-1 text-base antialiased font-normal text-center text-white hover:bg-green-light">Audio</button>
                             <button onClick={this.handleToggleVideo} className="w-24 pt-1 text-base antialiased font-normal text-center text-white hover:bg-green-light">video</button>
                             <button onClick={this.shareScreen} className="w-24 pt-1 text-base antialiased font-normal text-center text-white hover:bg-green-light">Share Screen</button>
                             <button onClick={this.leaveSession} className="w-24 pt-1 text-base antialiased font-normal text-center text-white hover:bg-green-light">Leave</button>
-
+                            <button onClick={this.disconnect}>disconnect</button>
                             <section id="sharedScreenContainer">
                                 {this.state.publisher === this.state.myScreenShare ? (
                                     <UserScreenComponent
@@ -218,9 +239,7 @@ class RoomsList extends Component {
                                 ) : null}
                             </section>
                         </div>
-                        <div className="" >
-                        
-                        </div>
+
                         <div id="publisherContainer" className="flex flex-row flex-wrap w-64 rounded-sm shadow-sm h-60">
 
                             {this.state.publisher !== this.state.myScreenShare ? (
@@ -228,16 +247,18 @@ class RoomsList extends Component {
                                     streamManager={this.state.publisher} />
                             ) : null}
                         </div>
+                        <div id="subscriberContainer" className="flex flex-row flex-wrap w-64 rounded-sm shadow-sm h-60">
 
-                        {this.state.subscribers.map((sub, i) => (
-                            <UserVideoComponent streamManager={sub} />
-                        ))}
+                            {this.state.subscribers.map((sub, i) => (
+                                <UserVideoComponent streamManager={sub} />
+                            ))}
+                        </div>
 
                     </div>
                 ) : null}
 
 
-                <form onSubmit={this.joinSession} className="p-2 overflow-y-scroll rounded-lg shadow-inner newUtilities h-my w-52 bg-gradient-to-b from-green-light/70 to-blue-dark/70 ">
+                <form onSubmit={(e)=>{e.preventDefault();this.joinSession();}} className="p-2 overflow-y-scroll rounded-lg shadow-inner newUtilities h-my w-52 bg-gradient-to-b from-green-light/70 to-blue-dark/70 ">
                     <div className="flex flex-row justify-between h-8 pl-2 pr-2 border rounded-lg shadow-md border-green-light hover:bg-blue-dark ">
                         <label className="mt-0.5 text-base antialiased font-normal text-white ">Room1</label>
                         <button onClick={this.handleChangeSessionId} value="room1" type="submit" className="mt-0.5 block w-6 h-6 text-lg font-semibold leading-6 text-center text-white rounded-xl ntialiased hover:bg-blue-light">+</button>
