@@ -331,7 +331,7 @@ class RoomsList extends Component {
               </label>
               <button
                 onClick={this.handleChangeSessionId}
-                value="room3"
+                value="room4"
                 type="submit"
                 className="mt-0.5 block w-6 h-6 text-lg font-semibold leading-6 text-center text-white rounded-xl ntialiased hover:bg-blue-light"
               >
@@ -345,7 +345,7 @@ class RoomsList extends Component {
               </label>
               <button
                 onClick={this.handleChangeSessionId}
-                value="room3"
+                value="room5"
                 type="submit"
                 className="mt-0.5 block w-6 h-6 text-lg font-semibold leading-6 text-center text-white rounded-xl ntialiased hover:bg-blue-light"
               >
@@ -359,7 +359,7 @@ class RoomsList extends Component {
               </label>
               <button
                 onClick={this.handleChangeSessionId}
-                value="room3"
+                value="room6"
                 type="submit"
                 className="mt-0.5 block w-6 h-6 text-lg font-semibold leading-6 text-center text-white rounded-xl ntialiased hover:bg-blue-light"
               >
@@ -374,7 +374,7 @@ class RoomsList extends Component {
               </label>
               <button
                 onClick={this.handleChangeSessionId}
-                value="room3"
+                value="room7"
                 type="submit"
                 className="mt-0.5 block w-6 h-6 text-lg font-semibold leading-6 text-center text-white rounded-xl ntialiased hover:bg-blue-light"
               >
@@ -388,7 +388,7 @@ class RoomsList extends Component {
               </label>
               <button
                 onClick={this.handleChangeSessionId}
-                value="room3"
+                value="room8"
                 type="submit"
                 className="mt-0.5 block w-6 h-6 text-lg font-semibold leading-6 text-center text-white rounded-xl ntialiased hover:bg-blue-light"
               >
@@ -402,7 +402,7 @@ class RoomsList extends Component {
               </label>
               <button
                 onClick={this.handleChangeSessionId}
-                value="room3"
+                value="room9"
                 type="submit"
                 className="mt-0.5 block w-6 h-6 text-lg font-semibold leading-6 text-center text-white rounded-xl ntialiased hover:bg-blue-light"
               >
@@ -416,7 +416,7 @@ class RoomsList extends Component {
               </label>
               <button
                 onClick={this.handleChangeSessionId}
-                value="room3"
+                value="room10"
                 type="submit"
                 className="mt-0.5 block w-6 h-6 text-lg font-semibold leading-6 text-center text-white rounded-xl ntialiased hover:bg-blue-light"
               >
@@ -430,7 +430,7 @@ class RoomsList extends Component {
               </label>
               <button
                 onClick={this.handleChangeSessionId}
-                value="room3"
+                value="room11"
                 type="submit"
                 className="mt-0.5 block w-6 h-6 text-lg font-semibold leading-6 text-center text-white rounded-xl ntialiased hover:bg-blue-light"
               >
@@ -444,7 +444,7 @@ class RoomsList extends Component {
               </label>
               <button
                 onClick={this.handleChangeSessionId}
-                value="room3"
+                value="room12"
                 type="submit"
                 className="mt-0.5 block w-6 h-6 text-lg font-semibold leading-6 text-center text-white rounded-xl ntialiased hover:bg-blue-light"
               >
@@ -458,7 +458,7 @@ class RoomsList extends Component {
               </label>
               <button
                 onClick={this.handleChangeSessionId}
-                value="room3"
+                value="room13"
                 type="submit"
                 className="mt-0.5 block w-6 h-6 text-lg font-semibold leading-6 text-center text-white rounded-xl ntialiased hover:bg-blue-light"
               >
@@ -473,7 +473,7 @@ class RoomsList extends Component {
               </label>
               <button
                 onClick={this.handleChangeSessionId}
-                value="room3"
+                value="room14"
                 type="submit"
                 className="mt-0.5 block w-6 h-6 text-lg font-semibold leading-6 text-center text-white rounded-xl ntialiased hover:bg-blue-light"
               >
@@ -488,7 +488,7 @@ class RoomsList extends Component {
               </label>
               <button
                 onClick={this.handleChangeSessionId}
-                value="room3"
+                value="room15"
                 type="submit"
                 className="mt-0.5 block w-6 h-6 text-lg font-semibold leading-6 text-center text-white rounded-xl ntialiased hover:bg-blue-light"
               >

@@ -1,8 +1,7 @@
 import axios from "axios";
-// require('dotenv').config();
-// console.log(process.env.REACT_APP_OPENVIDU_SERVER_URL);
-const OPENVIDU_SERVER_URL = 'https://' + window.location.hostname + ':4443';
-const OPENVIDU_SERVER_SECRET = 'MY_SECRET';
+
+const OPENVIDU_SERVER_URL = process.env.REACT_APP_OPENVIDU_SERVER_URL; // OR 'https://' + window.location.hostname + ':4443';
+const OPENVIDU_SERVER_SECRET = process.env.REACT_APP_OPENVIDU_SERVER_SECRET; //OR 'MY_SECRET';
 
 export function getToken(sessionName) {
     return createSession(sessionName)
