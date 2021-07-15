@@ -6,6 +6,19 @@ export default function TeckitForm(props) {
     const [userInfo, setUserInfo] = useState('');
     const [errors, setErrors]= useState({});
 
+    const initialFormData = Object.freeze({
+		description: '',
+		RoomNmber: '',
+        LabNmber:''
+	});
+	const [formData, updateFormData] = useState(initialFormData);
+	const handleChange = (e) => {
+		updateFormData({
+			...formData,
+			[e.target.name]: e.target.value.trim(),
+		});
+        console.log(formData)
+	};
     
 
     const onSubmit = (data) =>{
@@ -20,16 +33,10 @@ export default function TeckitForm(props) {
             {cont?
             <div className="items-center p-6 mt-4 ml-4 overflow-y-scroll rounded-lg shadow-xl h-44 w-72 bg-gradient-to-b from-white/70 to-green-light/70">
             <button onClick={()=>setCont(false)} className="block w-full h-8 mt-3 antialiased font-normal text-white rounded-md rounded-l shadow-lg hover:bg-green-light bg-blue-dark text-md" >Close</button>
-            <h1 className="font-semibold text-blue-dark text-md">Lab:13 / room:5</h1>
-            <h1 className="font-semibold text-blue-dark text-md">Lab:19 / room:7</h1>
-            <h1 className="font-semibold text-blue-dark text-md">Lab:2 / room:4</h1>
-            <h1 className="font-semibold text-blue-dark text-md">Lab:7 / room:1</h1>
-            <h1 className="font-semibold text-blue-dark text-md">Lab:9 / room:8</h1>
-            <h1 className="font-semibold text-blue-dark text-md">Lab:15 / room:2</h1>
-            <h1 className="font-semibold text-blue-dark text-md">Lab:11 / room:6</h1>
-            <h1 className="font-semibold text-blue-dark text-md">Lab:14 / room:11</h1>
-            <h1 className="font-semibold text-blue-dark text-md">Lab:10 / room:10</h1>
-            <h1 className="font-semibold text-blue-dark text-md">Lab:12 / room:5</h1>
+            <h1 className="font-semibold text-blue-dark text-md">Room #: {formData.RoomNmber}</h1>
+            <h1 className="font-semibold text-blue-dark text-md">Lab # : {formData.LabNmber}</h1>
+            <h1 className="font-semibold text-blue-dark text-md">Discription : {formData.description}</h1>
+
             </div>       
             :null}
             </div>
@@ -38,11 +45,11 @@ export default function TeckitForm(props) {
          <div className="items-center h-64 p-6 mt-4 ml-4 rounded-lg shadow-xl w-72 bg-gradient-to-b from-white/70 to-green-light/70">
          <form onSubmit = {handleSubmit(onSubmit)} className=" w-60" >
            
-            <input className="block w-full h-8 pl-3 border-2 rounded-md rounded-l shadow-inner border-green-light focus:ring-blue-dark focus:border-green-light sm:text-sm " name="description"  type="text" placeholder="description" {...register('description', { required: true  })} />
+            <input className="block w-full h-8 pl-3 border-2 rounded-md rounded-l shadow-inner border-green-light focus:ring-blue-dark focus:border-green-light sm:text-sm " name="description"  type="text" placeholder="description"  onChange={handleChange} />
 
-            <input className="block w-full h-8 pl-3 mt-3 border-2 rounded-md rounded-l shadow-inner border-green-light focus:ring-blue-dark focus:border-green-light sm:text-sm " name="RoomNmber" type="nmber" placeholder="Room Number" {...register('RoomNmber', { required: true  })}/>
+            <input className="block w-full h-8 pl-3 mt-3 border-2 rounded-md rounded-l shadow-inner border-green-light focus:ring-blue-dark focus:border-green-light sm:text-sm " name="RoomNmber" type="nmber" placeholder="Room Number"  onChange={handleChange}/>
             
-            <input className="block w-full h-8 pl-3 mt-3 border-2 rounded-md rounded-l shadow-inner border-green-light focus:ring-blue-dark focus:border-green-light sm:text-sm " name="LabNmber" type="nmber" placeholder="Lab Number" {...register('LabNmber', { required: true  })}/>
+            <input className="block w-full h-8 pl-3 mt-3 border-2 rounded-md rounded-l shadow-inner border-green-light focus:ring-blue-dark focus:border-green-light sm:text-sm " name="LabNmber" type="nmber" placeholder="Lab Number"  onChange={handleChange}/>
 
             <button onClick={()=>{setShow(false);setCont(true)}} className="block w-full h-8 mt-3 antialiased font-normal text-white rounded-md rounded-l shadow-lg hover:bg-green-light bg-blue-dark text-md" >Raise</button>
 
