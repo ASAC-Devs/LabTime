@@ -1,5 +1,6 @@
 import axios from "axios";
-// put in .env
+// require('dotenv').config();
+// console.log(process.env.REACT_APP_OPENVIDU_SERVER_URL);
 const OPENVIDU_SERVER_URL = 'https://' + window.location.hostname + ':4443';
 const OPENVIDU_SERVER_SECRET = 'MY_SECRET';
 
