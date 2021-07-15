@@ -11,7 +11,7 @@ class RoomsList extends Component {
 
         this.state = {
             mySessionId: 'SessionA',
-            myUserName: 'Participant' + Math.floor(Math.random() * 100),
+            myUserName: '', //'Participant' + Math.floor(Math.random() * 100),
             session: undefined,
             mainStreamManager: undefined,
             publisher: undefined,
